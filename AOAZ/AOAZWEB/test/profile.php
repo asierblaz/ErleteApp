@@ -131,6 +131,7 @@ if(!isset($_SESSION["rol"])||$_SESSION["rol"]== null){
 							<a href="reserva.php" class="nav-link">Make a booking</a>
 						</li>
 						
+						
 					</ul>
 					
 					<ul class="navbar-nav ml-auto">
@@ -162,7 +163,7 @@ if(!isset($_SESSION["rol"])||$_SESSION["rol"]== null){
 					<ul class="nav navbar-nav ">
 						
 						<li class="nav-item">
-							<a href="managebookingadmin.php" class="nav-link">Modify a booking</a>
+							<a href="managebookingadmin.php" class="nav-link active">Modify a booking</a>
 						</li>
 
 						<li class="nav-item">
@@ -182,7 +183,7 @@ if(!isset($_SESSION["rol"])||$_SESSION["rol"]== null){
 							<div class="dropdown-menu dropdown-menu-right" >
 								
 								<a class="dropdown-item" id="profile" href="profile.php">Edit Profile</a>
-						
+							
 								<div style="border-color:#999691" class="dropdown-divider"></div>
 								<a class="dropdown-item" id="close" href="logout.php">Log Out &nbsp; <img src="img/exit.png" style="width:20px;height: 17px" /></a>
 							</div>

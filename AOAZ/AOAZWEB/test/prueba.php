@@ -1,37 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
-
-<h2>Erlete System| Restore your password</h2>
-Dear user, to restore your password click in the link bellow and add the recived code to the form.<br>
-<br>
-YOUR RESTORE CODE:<h2 style="color: blue">1233</h2>
-<br>
-<a href='".$enlace."/AOAZ/AOAZWEB/test/recuperarpasscode.php?mail=".$emailingresado."'>RESTORE YOUR PASSWORD CLICKING HERE!</a>
-<br><br><br><br>
-
-Erlete Association | aoazdevelopers
-</body>
-</html>
-
-
 <?php 
 
-$mensaje="<h2>Erlete System| Restore your password</h2>
-Dear user, to restore your password click in the link bellow and add the recived code to the form.<br>
-<br>
-YOUR RESTORE CODE:<h2 style='color: blue'>".$codigo."</h2>
-<br>
-<a href='".$enlace."/AOAZ/AOAZWEB/test/recuperarpasscode.php?mail=".$emailingresado."'>RESTORE YOUR PASSWORD CLICKING HERE!</a>
-<br><br><br><br>
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-Erlete Association | aoazdevelopers";
+require 'lib/PHPMailer/Exception.php';
+require 'lib/PHPMailer/PHPMailer.php';
+require 'lib/PHPMailer/SMTP.php';
+
+$mail = new PHPMailer(); // create a new object
+$mail->IsSMTP(); // enable SMTP
+$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = true; // authentication enabled
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 465; // or 587
+$mail->IsHTML(true);
+$mail->Username = "aoazdevelopers@gmail.com";
+$mail->Password = "Aoazdam1";
+$mail->SetFrom("aoazdevelopers@gmail.com");
+$mail->Subject = "Test";
+$mail->Body = "hello";
+$mail->AddAddress("blazasiuni@gmail.com");
+
+ if(!$mail->Send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+ } else {
+    echo "Message has been sent";
+ }
  ?>
-
-
-
- 	    $mail->Body    = " <html>To restore your password, click in the code and add it to the form <br>  <a href='".$enlace."/AOAZ/AOAZWEB/test/recuperarpasscode.php?mail=".$emailingresado."'><h1>".$codigo."</h1> </html>";

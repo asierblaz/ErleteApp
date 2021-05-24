@@ -25,19 +25,23 @@ if(isset($resultado)){
 
 <?php
 
-
+$total = 0;
 while($imprimir=mysqli_fetch_array($resultado)){
 
 ?>      <tr>
         <td id="cause" data-id_prueba="<?php echo $imprimir['motivo'] ?>" ><?php echo $imprimir['motivo'] ?></td>
         <td id="euros"><?php echo $imprimir['eurosdeuda']." €" ?></td>  
-        <td><button type="button" data-id="<?php echo $imprimir['iddeuda'] ?>" id="pay" class="btn btn-warning">Pay</button></td>
+        <td><a target="_blank" href="payment.php"><button type="button" data-euro="<?php echo $imprimir['eurosdeuda']?>" data-motivo="<?php echo $imprimir['motivo'] ?>" data-id="<?php echo $imprimir['iddeuda'] ?>" id="pay" class="btn btn-warning">Pay</button></a></td>
   
-        
+        <br><br>
+
 
 
       </tr>
-  <?php } ?>
+  <?php
+  $total=$imprimir['eurosdeuda']+$total;
+
+   } ?>
   </table>
 
   <br><br><br>
@@ -47,6 +51,7 @@ while($imprimir=mysqli_fetch_array($resultado)){
 }
 
 ?>
+    <b>Total to pay : <?php  echo $total." €" ?>  </b>
 
   <br><br><br>
 </div>
