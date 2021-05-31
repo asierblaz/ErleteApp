@@ -19,7 +19,8 @@ public class saldotest extends TestCase {
     double saldoActual;
     double d1;
     double d2;
-
+    
+  
     public saldotest() {
 
         setUp();

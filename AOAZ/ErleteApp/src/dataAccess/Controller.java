@@ -62,6 +62,7 @@ public class Controller implements ActionListener {
         menu.anadirCantidadButton.addActionListener(listener);
         menu.movementsButton.addActionListener(listener);
         menu.depositDineroButton.addActionListener(listener);
+        menu.depositDineroButton.addActionListener(listener);
     }
 
     @Override
@@ -81,7 +82,6 @@ public class Controller implements ActionListener {
             case "Delete":
                 borrarProducto();
                 datuakKargatu();
-                //  herriaEzabatu();
                 break;
 
             case "Add Quantity":
@@ -162,7 +162,7 @@ public class Controller implements ActionListener {
      */
     public void anadirProducto() {
 
-        String nombre = view.productoField.getText();
+        String nombre = view.productoField.getText().toUpperCase();
         int cantidad = 0;
         double precio = 0;
         double total = 0;
@@ -194,7 +194,6 @@ public class Controller implements ActionListener {
                 view.cantidadField.setText("");
 
                 String saldo = model.mostrarSaldo();
-                System.out.println(saldo);
                 double nuevosaldo = Double.parseDouble(saldo) - total;
                 model.actualizarSaldo(nuevosaldo);
             } catch (Exception e) {
